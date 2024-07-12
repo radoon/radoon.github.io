@@ -341,4 +341,16 @@ function randomizer() {
   }
 }
 
+function showAll() {
+  var result_target = document.getElementById("fullList");
+  var button_target = document.getElementById("showAllButton");
+
+  for (var i=0; i<restaurants.length; i++) {
+    result_target.innerHTML += restaurants[i] + '<br />';
+  }
+
+  button_target.remove();
+  result_target.style = "";
+}
+
 randomizer();
