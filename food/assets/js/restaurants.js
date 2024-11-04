@@ -61,6 +61,7 @@ const restaurants = [
     new Restaurant("Broadway Cafe", ["Breakfast","Diner","Cafe"], "East", "https://broadwaycafesaskatoon.ca/"),
     new Restaurant("Broken Egg", ["Breakfast"], "West", ""),
     new Restaurant("Park Cafe", ["Breakfast","Diner","Cafe"], "Downtown", "https://www.facebook.com/parkcafeyxe"),
+    new Restaurant("Las Palapas",["Mexican"],"East","https://www.laspalapas.ca/"),
     // above were manually entered; below were generated
     new Restaurant("Browns Socialhouse",["Pub"],"Multiple",""),
     new Restaurant("Bun's House Restaurant",["Asian"],"North",""),
