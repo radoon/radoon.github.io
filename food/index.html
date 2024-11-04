@@ -1,21 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Food Randomizer - radoon.ca</title>
+  <title>Food Randomizer | radoon.ca</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="assets/css/base.css" rel="stylesheet">
   <link href="assets/css/custom.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Random Restaurant Roulette</h1>
-  <input type="button" value="randomize" onclick="randomizer();" />
-  <p id="randomResult">press the button</p>
-  <hr />
-  <input id="showAllButton" type="button" value="list all restaurants" onclick="showAll();" />
-  <p id="fullList" style="display:none;">
-    <strong>All Restaurants</strong><br />
+  <h1>Food Randomizer</h1>
+  <label for="foodselect">Food Type</label>
+  <select id="foodselect">
+    <option value="">All</option>
+  </select>
+
+  <label for="areaselect">Area</label>
+  <select id="areaselect">
+    <option value="">All</option>
+  </select>
+
+  <label for="limitselect">Limit</label>
+  <select id="limitselect">
+    <option value="1">1</option>
+    <option value="3">3</option>
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="">All</option>
+  </select>
+  <br />
+  <br />
+
+  <p>
+    <input type="button" value="pick for me" onclick="runListGenerator();" />
   </p>
+
+  <ul id="filteredResult" class="result-text"></ul>
+  
+  <script src="assets/js/restaurants.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
 </html>

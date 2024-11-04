@@ -4,6 +4,7 @@ html {
 body {
   background-color: #333;
   color: #fff !important;
+  font-size: 14px;
   padding: 1em;
   text-align: center;
 }
@@ -11,7 +12,45 @@ h1 {
   color: #fff;
   margin-bottom: 0.5em;
 }
-#randomResult {
+input[type="button"] {
+  width: 8em;
+}
+.result-text {
   font-size: large;
   font-weight: bold;
+  text-align: left;
+}
+.result-text a {
+  color: white;
+}
+.result-text a:hover {
+  text-decoration: underline;
+}
+.result-text a.own-website::after {
+  background-color: green;
+  border-radius: 4px;
+  content: "direct ordering";
+  display: inline-block;
+  font-size: 0.4em;
+  line-height: 1em;
+  margin-left: 0.5em;
+  padding: 5px;
+  position: relative;
+  top: -5px;
+}
+ul.result-text {
+  background: #464646;
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 auto;
+  max-width: 30em;
+  padding: 1em;
+}
+ul.result-text li {
+  line-height: 1em;
+  list-style: none;
+  margin-bottom: 1em;
+}
+ul.result-text li span.result-food {
+  font-size: 0.6em;
 }

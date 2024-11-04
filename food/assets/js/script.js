@@ -1,356 +1,104 @@
-const restaurants = [
-  "123 Pizza & Indian Cuisine",
-  "2 For 1 Family Pizza",
-  "A&W",
-  "Ace Burger",
-  "Afghan Kabob & Donair",
-  "Ambarsari Kitchen",
-  "Angeethi Flame Fine Indian Bistro",
-  "Arby's",
-  "Asian Cuisine",
-  "Asian Garden",
-  "Asian Kitchen",
-  "Baba's Homestyle Perogies",
-  "Bagel Shop",
-  "Baghdad Restaurant Ltd.",
-  "Bannock Express",
-  "Bao Bros",
-  "barBURRITO",
-  "Bawk Bawk Chicken & Poutines",
-  "Beaks Chicken",
-  "Bell Island Pizza",
-  "Best Asia Buffet",
-  "Best Taste Restaurant",
-  "Between the Buns",
-  "Big Bird",
-  "Big Wings",
-  "Birmingham's Vodka & Ale House",
-  "Black Cat Tavern",
-  "Black Pepper Pizza",
-  "Blackrose Whiskey Club",
-  "Blue Rhino Pub & Grill",
-  "Boardwalk Fries Burgers Shakes",
-  "Bombay Chaat & Paan",
-  "Bon Temps Cafe",
-  "Boston Pizza",
-  "Botté Persian Kitchen",
-  "Breakfast by Rock N Rodz",
-  "Bridges Ale House & Eatery",
-  "Bring Wings",
-  "Broken Egg",
-  "Browns Socialhouse",
-  "Bun's House Restaurant",
-  "Burger King",
-  "Buster's Pizza & Donair",
-  "Cafe Japa Bowl",
-  "Capitol Music Club",
-  "Caraway Grill Saskatoon",
-  "Casper's Shawarma",
-  "Cathedral Social Hall",
-  "Cesar's Cakes & Cafe",
-  "Cheesetoast Restaurant",
-  "Chef Express",
-  "Chef Pan",
-  "Chianti's Cafe",
-  "Chicken Hut",
-  "CHIT CHA",
-  "Chop Steakhouse & Bar",
-  "Chungchun Rice Hotdog",
-  "Church's Texas Chicken",
-  "Clark's Crossing Brew Pub",
-  "Coachman Restaurant",
-  "Cohen's Beer Republic",
-  "Cora Breakfast & Lunch",
-  "Cory Park Cafe",
-  "Crispy Bites",
-  "Crown Kitchen",
-  "Crunchy Basket",
-  "Dairy Queen",
-  "Darbar Restaurant",
-  "David's Restauraunt and Lounge",
-  "Delight + Chinese Cuisine",
-  "Denny's",
-  "Diane's Kitchen",
-  "Donair & Pizza Palace",
-  "Dough Box Wood Fired Pizza & Pasta",
-  "Dragon Emperor Dim Sum Restaurant",
-  "Dublin's",
-  "Dynamic Duo Restaurants",
-  "Edo Japan",
-  "Extreme Pita",
-  "Faifo Concept",
-  "Famoso Italian Pizzeria",
-  "Fatburger",
-  "Filosophi Wise Cuisine",
-  "Fin City Fish & Chips",
-  "Five Guys Burgers & Fries",
-  "Flor's Authentic Filipino Cuisine",
-  "Fox and Hounds Pub and Brewery",
-  "Frankys Banh Mi",
-  "French Toast Family Restaurant",
-  "FreshSlice Pizza",
-  "Fried Addictions",
-  "Fuh Station Vietnamese Cuisine",
-  "Fuzion Sushi & Deli Bar",
-  "Global Pot Fusion Cuisine",
-  "Gong Cha",
-  "Good Farmer Tofu Products and Deli",
-  "Great Buffet of China",
-  "Guac Mexi Grill",
-  "Guruji Pure Veg Restaurant",
-  "Hakka Express",
-  "Happy Lamb Hot Pot",
-  "Havmor",
-  "Healthy Living Bistro and Boutique",
-  "Heaven Pizza & Donair",
-  "Hey Fried Chicken",
-  "High Key Brewing Co Tap Room",
-  "Hot Wok Asian Restaurant",
-  "House Of Hakka Asian Fusion Cuisine",
-  "Hudsons Canada's Pub",
-  "Humpty's Big Plate Diner",
-  "Hunger Cure Restro & Bar",
-  "Jack + Roy's BBQ",
-  "Jacky's Exotic Pizza",
-  "Japa Shack",
-  "Jasmine Restaurant",
-  "Jeju Korean BBQ Restaurant",
-  "Jia Vietnamese and Chinese Eatery",
-  "Jodhpur Sweets & Restaurant",
-  "Joey's Seafood Restaurant",
-  "Kabab King",
-  "Karahi Guys Restaurant",
-  "Katmu Family Restaurant",
-  "Keo's Kitchen",
-  "KFC",
-  "Khan Kabab Peshawari",
-  "King of Donair",
-  "KING OF DUCK",
-  "Ko Chicken + Ramen",
-  "Koi Japanese Restaurant",
-  "Koko Curry",
-  "Kooko's Pizza",
-  "La Bamba Cafe",
-  "La Familia",
-  "Lebanese Kitchen",
-  "Leopold's Tavern",
-  "Liberty Kitchen",
-  "Little Caesars",
-  "Little Spice",
-  "Loaded Pierogi",
-  "Louis'",
-  "Love Punjab Eats",
-  "Magic Wok",
-  "Mai's Kitchen Vietnamese Cuisine",
-  "ManchuWOK",
-  "Mano's Restaurant & Lounge",
-  "Marhaba Restaurant",
-  "Marvin's Home of the Best Siopao",
-  "Mary Brown's Chicken",
-  "McDonald's",
-  "Meg's Diner",
-  "Meltwich Food Co.",
-  "Mi Tierra Mexican Restaurant",
-  "Mia Pasta",
-  "Ming's Kitchen",
-  "Montana's BBQ & Bar",
-  "Mosey's Southern BBQ",
-  "Moto Japanese Kitchen",
-  "MOXIES",
-  "MR MIKES SteakhouseCasual",
-  "Mr. Ribs Family Restaurant",
-  "Mr.Sub",
-  "Mucho Burrito",
-  "Namaste Bistro Saskatoon",
-  "Nebo's Falafel & Donair",
-  "Nellie's Kitchen",
-  "New Island Sushi",
-  "New York Fries",
-  "No. 1 Noodle House",
-  "Noodlebox",
-  "Nutana Cafe",
-  "NY Pizza Den",
-  "O'Shea's Irish Pub",
-  "Oceania Inn",
-  "October Authentic Asian Cuisine",
-  "OOMORI JAPANESE KITCHEN",
-  "OPA! Souvlaki of Greece",
-  "Orchid Garden",
-  "Oreno Sushi",
-  "Original Joe's Restaurant & Bar",
-  "Pak Donair",
-  "Panago Pizza",
-  "Pancho's Pizza & Pasta",
-  "Peking Restaurant",
-  "Philthy Philly's",
-  "Pho Hao Restaurant",
-  "Pi Co.",
-  "Pickle & Bowls",
-  "Pita Pit",
-  "Pizza 73",
-  "Pizza Bite & Indian Food",
-  "Pizza Hut",
-  "Pizza Time Pizza and Donair",
-  "Pleasure-Way Pub",
-  "Popeyes Louisiana Kitchen",
-  "Poppin Perogies",
-  "Prairie Donair",
-  "Prairie Ink",
-  "Press'd Sandwich Shop",
-  "Primal",
-  "Prime Bistro",
-  "Princess Kitchen",
-  "Puffsey Japanese restaurant",
-  "Quebec Real Poutine",
-  "Quesada Burritos & Tacos",
-  "Quiznos",
-  "Real Canadian Pizza & Donair",
-  "Red Lobster",
-  "Red Pepper",
-  "Red Swan Pizza",
-  "Red Zone Premium Sports Bar",
-  "Red's Bar and Grill",
-  "Restaurant Kashmere",
-  "Rice Box",
-  "Ricky Ticky Tacos",
-  "Ricky's All Day Grill",
-  "Rock Creek Tap & Grill",
-  "Rock N Rodz Diner",
-  "Royal Paan",
-  "Royal Pizza",
-  "Saigon Roll Restaurant",
-  "Salad Bar By Pi Co",
-  "Salt'N Pepper Indian Restaurant",
-  "Sami's Sunrise Grill",
-  "Samway Grill",
-  "Santa Lucia Pizza",
-  "Sardinia",
-  "Saskatoon Inn Garden Cafe & Lounge",
-  "Satay Vietnamese",
-  "Schnitzel Meister",
-  "Seasoned Fusion Tastes",
-  "Shark Club",
-  "Sharma Curry Express & Sweets",
-  "Shawarma Boys",
-  "Sizzling Wok",
-  "Sly Fox Chicken Shack",
-  "Smash Hamburgur",
-  "Smitty's",
-  "Smoke's Poutinerie",
-  "Solaro Pizza",
-  "Specklebellys Pub & Eatery",
-  "Spicy Bite Restaurant",
-  "Spicy Garden Restaurant",
-  "Spicy Time Fine Indian Cuisine",
-  "Spring Roll Restaurant",
-  "Star of Ishtar",
-  "State & Main",
-  "Stephen C Dim Sum & BBQ",
-  "Stoked Kitchen & Bar",
-  "Street Tenders",
-  "Stylin' Poutine",
-  "Subway",
-  "Summer Palace Restaurant",
-  "Sunan's Garden Hot Pot Buffet",
-  "Swadesh",
-  "Szechuan Kitchen",
-  "T&Q VietMeal Restaurant",
-  "Taco Bell",
-  "Taco Time",
-  "Taj Mahal",
-  "Tamarind Restaurant",
-  "Tandoori Express Pizza",
-  "Tandoori Palace",
-  "Tandoori Tadka",
-  "Tapps Sports Lounge & Grill",
-  "Tapri",
-  "Taqueria Mexicana El Milagro",
-  "Taste of Syria Restaurant",
-  "Tastebuds Cafe",
-  "Taunte Maria's Mennonite and Chinese Food Restaurant",
-  "Taverna Italian Kitchen + Bar",
-  "Thai Express",
-  "The Biryani Box Restaurant Ltd",
-  "The Bombay Restaurant",
-  "The Broadway Roastery",
-  "The Burger Den",
-  "The Canadian Brewhouse",
-  "The Chopped Leaf",
-  "The Flats Eatery + Drink",
-  "The Gravy Boat",
-  "The Greek House",
-  "The Haines Mile Pub",
-  "The Hideout Lounge",
-  "The Meltdown",
-  "The Old Spaghetti Factory",
-  "The Philthy Pierogi",
-  "The Pitch Kitchen",
-  "The Riv Bar",
-  "The Rook & Raven Pub",
-  "The Ukrainian Canadian",
-  "The Vault Restaurant",
-  "The Veganish",
-  "The Wok Asian Restaurant",
-  "Thien Vietnam",
-  "Thirsty Scholar",
-  "Thirteen Pies",
-  "Tim Hortons",
-  "TJ's Pizza",
-  "Tong's Wok",
-  "Toon Town Tavern",
-  "TOT Café",
-  "True Pizza",
-  "Twisted Monkey",
-  "UNA pizza + wine",
-  "Valley Pizza",
-  "Venice House",
-  "Vietnamese Diner Restaurant",
-  "Vietnamese Tasty Cuisine",
-  "VPs Pub and Grill",
-  "Waves Poke + Press",
-  "Wayback Burgers",
-  "Wednesday's Smokey BBQ",
-  "Wendel Clark's",
-  "Wendy's",
-  "White Lotus",
-  "Willow Country",
-  "Wings & All",
-  "Wok Box",
-  "Wow Pizza",
-  "Yanz Place",
-  "Yip Hong's",
-  "YoHakka!",
-  "YXE Pizza & Burgers"
-];
+var restaurantsArr = [];
 
-function randomizer() {
-  var rest_num = restaurants.length;
-  var result_target = document.getElementById("randomResult");
-  var random_array = [];
-  result_target.innerHTML = "";
-
-  for (var i=0; i<5; i++) {
-    var random_num = Math.floor(Math.random() * rest_num);
-    random_array.push(random_num);
-  }
-
-  random_array.sort(function(a, b){return a - b});
-
-  for (var j=0; j<random_array.length; j++) {
-    result_target.innerHTML += restaurants[random_array[j]] + '<br>';
-  }
+if (typeof restaurants !== 'undefined') {
+  restaurantsArr = restaurants;
 }
 
-function showAll() {
-  var result_target = document.getElementById("fullList");
-  var button_target = document.getElementById("showAllButton");
+// Generate food type list
+var rawFoodList = [];
+restaurantsArr.forEach(element => {
+  element.food.forEach(foodelem => {
+    if (foodelem !== "") {
+      rawFoodList.push(foodelem);
+    }
+  });
+});
+var foodList = [...new Set(rawFoodList)];
+foodList.sort();
 
-  for (var i=0; i<restaurants.length; i++) {
-    result_target.innerHTML += restaurants[i] + '<br />';
+// Generate area list
+var rawAreaList = [];
+restaurantsArr.forEach(element => {
+  if (element.area !== "") {
+    rawAreaList.push(element.area);
   }
+});
+var areaList = [...new Set(rawAreaList)];
+areaList.sort();
 
-  button_target.remove();
-  result_target.style = "";
+// Populate select lists
+var foodselect = document.getElementById("foodselect");
+var areaselect = document.getElementById("areaselect");
+foodList.forEach(element => {
+  var option = document.createElement("option");
+  option.text = element;
+  option.value = element;
+  foodselect.add(option);
+});
+areaList.forEach(element => {
+  var option = document.createElement("option");
+  option.text = element;
+  option.value = element;
+  areaselect.add(option);
+});
+
+function filterFoods(arr, query) {
+  return arr.filter(element => element.food.includes(query));
 }
 
-randomizer();
+function getMultipleRandom(arr, num) {
+  const shuffled = [...arr].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, num);
+}
+
+function runListGenerator() {
+  const result = document.getElementById("filteredResult");
+  const foodselect = document.getElementById("foodselect").value;
+  const areaselect = document.getElementById("areaselect").value;
+  const limitselect = document.getElementById("limitselect").value;
+  var filteredArr = restaurantsArr;
+  result.innerHTML = "";
+
+  if (foodselect !== "") {
+    filteredArr = filterFoods(filteredArr, foodselect);
+  }
+
+  if (areaselect !== "") {
+    filteredArr = filteredArr.filter(obj => obj.area == areaselect);
+  }
+
+  const arrLen = filteredArr.length;
+  if (limitselect !== "" && arrLen > limitselect) {
+    filteredArr = getMultipleRandom(filteredArr, limitselect);
+    filteredArr.sort((a, b) => {
+      if (a.name < b.name)
+        return -1;
+      if (a.name > b.name)
+        return 1;
+      return 0;
+    });
+  }
+
+  if (filteredArr.length === 0) {
+    result.append("- no matches -");
+  }
+  else {
+    filteredArr.forEach(elem => {
+      var linebreak = document.createElement("br");
+      var resultitem = document.createElement("li");
+      var resultlink = document.createElement("a");
+      var resultfood = document.createElement("span");
+
+      resultlink.href = elem.link;
+      resultlink.text = elem.name;
+      resultlink.target = "_blank";
+      if (elem.ownwebsite) { resultlink.classList = "own-website"; }
+
+      resultfood.classList = "result-food";
+      resultfood.textContent = elem.listFoods + " - " + elem.area;
+
+      resultitem.append(resultlink, linebreak, resultfood);
+      result.append(resultitem);
+    });
+  }
+}

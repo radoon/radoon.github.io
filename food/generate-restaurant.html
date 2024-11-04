@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Generate Restaurant | radoon.ca</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="assets/css/base.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
+</head>
+
+<body>
+  <h1>Generate New Restaurant</h1>
+  <label for="namefield">Name</label>
+  <input type="text" id="namefield" />
+
+  <label for="foodselect">Food Type</label>
+  <select id="foodselect" multiple size="37">
+    <option value="African">African</option>
+    <option value="Asian">Asian</option>
+    <option value="Bakery">Bakery</option>
+    <option value="Breakfast">Breakfast</option>
+    <option value="Burgers">Burgers</option>
+    <option value="Cafe">Cafe</option>
+    <option value="Cajun">Cajun</option>
+    <option value="Caribbean">Caribbean</option>
+    <option value="Chinese">Chinese</option>
+    <option value="Desserts">Desserts</option>
+    <option value="Diner">Diner/American</option>
+    <option value="Donair">Donair</option>
+    <option value="Filipino">Filipino</option>
+    <option value="First Nations">First Nations</option>
+    <option value="Fried Chicken">Fried Chicken</option>
+    <option value="Greek">Greek</option>
+    <option value="Indian">Indian</option>
+    <option value="Italian">Italian</option>
+    <option value="Japanese">Japanese</option>
+    <option value="Kabab">Kabab</option>
+    <option value="Korean">Korean</option>
+    <option value="Mexican">Mexican</option>
+    <option value="Middle Eastern">Middle Eastern</option>
+    <option value="Pakistani">Pakistani</option>
+    <option value="Pitas">Pitas</option>
+    <option value="Pizza">Pizza</option>
+    <option value="Poutine">Poutine</option>
+    <option value="Pub">Pub</option>
+    <option value="Sandwiches">Sandwiches</option>
+    <option value="Shawarma">Shawarma</option>
+    <option value="Steakhouse">Steakhouse</option>
+    <option value="Sushi">Sushi</option>
+    <option value="Tacos">Tacos</option>
+    <option value="Thai">Thai</option>
+    <option value="Ukrainian">Ukrainian</option>
+    <option value="Vegetarian/Vegan">Vegetarian/Vegan</option>
+    <option value="Vietnamese">Vietnamese</option>
+  </select>
+
+  <label for="areaselect">Area</label>
+  <select id="areaselect">
+    <option value="Multiple">Multiple</option>
+    <option value="Downtown">Downtown</option>
+    <option value="East">East</option>
+    <option value="North">North</option>
+    <option value="South">South</option>
+    <option value="West">West</option>
+  </select>
+
+  <label for="website">Website</label>
+  <input type="text" id="website" />
+
+  <br />
+  <br />
+
+  <p>
+    <input type="button" value="generate" onclick="generateRestaurant();" />
+  </p>
+
+  <pre id="codegen" class="result-text" style="display: inline-block; margin:0 auto;"></pre>
+
+  <script>
+    function generateRestaurant() {
+      var codeout = "";
+      var codedest = document.getElementById("codegen");
+      var nameval = document.getElementById("namefield");
+      var foodselect = document.getElementById('foodselect');
+      var foodval = Array.from(foodselect.selectedOptions).map(({ value }) => value);
+      var areaval = document.getElementById("areaselect");
+      var website = document.getElementById("website");
+      
+      codeout = "new Restaurant(";
+      codeout += '"'+nameval.value+'"';
+      codeout += ',["'+foodval.join('","')+'"]';
+      codeout += ',"'+areaval.value+'"';
+      codeout += ',"'+website.value+'"';
+      codeout += "),";
+      codedest.append(codeout,"\n");
+
+      nameval.value = "";
+      foodselect.value = "";
+      areaval.value = "";
+      website.value = "";
+      nameval.focus();
+    }
+  </script>
+</body>
+</html>
